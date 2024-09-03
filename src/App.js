@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 // import Card from "react-bootstrap/Card";
+import QuoteBubble from "./components/QuoteBubble";
 
 export default function App() {
   const [data, setData] = React.useState(null);
@@ -21,6 +22,11 @@ export default function App() {
     }
   }
 
+  // weird spacing between apostrophe and s - probably a html inject issue
+  // bubble should grow with text received
+  // control author name length
+  // adjust tilt of author bubble
+
   useEffect(() => {
     updateQuote();
   }, []);
@@ -29,24 +35,11 @@ export default function App() {
 
   return (
     <div className="App">
-      {/* <Card style={{ width: "90%", maxWidth: "40rem" }}>
-        <Card.Body> */}
-      <div className="bubble">
-        <blockquote className="quote">
-          <p>{data.content}</p>
-
-          <footer className="quote-footer">
-            <cite title="Source Title">{data.author}</cite>
-          </footer>
-        </blockquote>
-      </div>
-      {/* </Card.Body>
-        <Card.Footer> */}
-      <Button className="quote-button" variant="primary" onClick={updateQuote}>
-        New Quote
-      </Button>
-      {/* </Card.Footer>
-      </Card> */}
+      <QuoteBubble
+        character={data.author}
+        message={data.content}
+        onRefreshQuote={updateQuote}
+      />
     </div>
   );
 }
