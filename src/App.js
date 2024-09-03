@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
+
+export default function App() {
+  const [data, setData] = React.useState(null);
+
+  async function updateQuote() {
+    try {
+      const response = await fetch("https://api.quotable.io/random");
+
+      if (!response.ok)
+        throw new Error(`${response.status} ${response.statusText}`);
+      const data = await response.json();
+      setData(data);
+    } catch (err) {
+      console.error(err);
+      setData({ content: "Oops...something went wrong" });
+    }
+  }
+
+  useEffect(() => {
+    updateQuote();
+  }, []);
+
+  if (!data) return null;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Card style={{ width: "90%", maxWidth: "40rem" }}>
+        <Card.Body> */}
+      <div className="bubble">
+        <blockquote className="quote">
+          <p>{data.content}</p>
+
+          <footer className="quote-footer">
+            <cite title="Source Title">{data.author}</cite>
+          </footer>
+        </blockquote>
+      </div>
+      {/* </Card.Body>
+        <Card.Footer> */}
+      <Button className="quote-button" variant="primary" onClick={updateQuote}>
+        New Quote
+      </Button>
+      {/* </Card.Footer>
+      </Card> */}
     </div>
   );
 }
-
-export default App;
