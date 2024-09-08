@@ -48,6 +48,7 @@ export default function App() {
           <FaSun size={20} style={{ color: "#482016" }} />
         )}
       </button>
+      
       <div className="content-row">
         <QuoteBubble
           character={isLoading ? "Loading..." : data?.author}
