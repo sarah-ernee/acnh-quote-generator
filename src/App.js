@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import QuoteBubble from "./components/QuoteBubble";
 import "./App.css";
 
-import { FaRegMoon, FaRegSun } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 export default function App() {
   const [data, setData] = useState(null);
@@ -39,11 +39,14 @@ export default function App() {
   return (
     <div className={`App ${darkMode ? "dark-bg" : "light-bg"}`}>
       <button
-        className="toggle-btn"
+        className={`${darkMode ? "dark-btn" : "light-btn"}`}
         onClick={toggleDarkMode}
-        style={{ alignSelf: "end" }}
       >
-        {darkMode ? <FaRegSun /> : <FaRegMoon />}
+        {darkMode ? (
+          <FaMoon size={20} style={{ color: "#9b8cbc" }} />
+        ) : (
+          <FaSun size={20} style={{ color: "#482016" }} />
+        )}
       </button>
       <div className="content-row">
         <QuoteBubble

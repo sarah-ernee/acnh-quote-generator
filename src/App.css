@@ -14,12 +14,28 @@
   background-size: cover;
 }
 
-.toggle-btn {
-  background: none;
-  border: solid #f1ae04 1px;
+.light-btn {
+  border: none;
+  border-radius: 50px;
+  background: #dd8530;
+
   font-size: 24px;
   cursor: pointer;
-  color: #f1ae04;
+  align-self: end;
+  margin: 0 20px 0 0;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.dark-btn {
+  border: none;
+  border-radius: 50px;
+  background: #383251;
+
+  font-size: 24px;
+  cursor: pointer;
+  align-self: end;
+  margin: 0 20px 0 0;
+  padding: 0 0.5rem 0.5rem 0.5rem;
 }
 
 .content-row {
