@@ -3,7 +3,7 @@ import "./QuoteBubble.css";
 
 const QuoteBubble = ({
   character = "Isabelle",
-  message = " A good attitude will always take you further than a bad habit.",
+  message = "Be right with you, Quotable API is done right now!",
   onRefreshQuote,
   darkMode,
 }) => {
