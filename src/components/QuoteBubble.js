@@ -1,7 +1,12 @@
 import React from "react";
 import "./QuoteBubble.css";
 
-const QuoteBubble = ({ character, message, onRefreshQuote, darkMode }) => {
+const QuoteBubble = ({
+  character = "Isabelle",
+  message = " A good attitude will always take you further than a bad habit.",
+  onRefreshQuote,
+  darkMode,
+}) => {
   const calculateFontSize = (messageLength) => {
     const minFontSize = 18;
     const maxFontSize = 32;
@@ -16,7 +21,7 @@ const QuoteBubble = ({ character, message, onRefreshQuote, darkMode }) => {
     return `${fontSize}px`;
   };
 
-  const chars = message.length ? message.length : 0;
+  const chars = message ? message.length : 0;
   const fontSize = calculateFontSize(chars);
 
   return (
