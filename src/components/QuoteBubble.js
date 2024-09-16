@@ -3,7 +3,7 @@ import "./QuoteBubble.css";
 
 const QuoteBubble = ({
   character = "Isabelle",
-  message = "Be right with you, Quotable API is done right now!",
+  message = "Be right with you, Quotable API is down right now!",
   onRefreshQuote,
   darkMode,
 }) => {
