@@ -1,12 +1,7 @@
 import React from "react";
 import "./QuoteBubble.css";
 
-const QuoteBubble = ({
-  character = "Isabelle",
-  message = "Be right with you, Quotable API is down right now!",
-  onRefreshQuote,
-  darkMode,
-}) => {
+const QuoteBubble = ({ character, message, onRefreshQuote, darkMode }) => {
   const calculateFontSize = (messageLength) => {
     const minFontSize = 18;
     const maxFontSize = 32;
